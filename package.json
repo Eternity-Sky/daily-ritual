@@ -1,0 +1,100 @@
+{
+  "name": "daily-ritual",
+  "displayName": "Daily Ritual",
+  "description": "一个具有仪式感的每日打卡插件，包含运气签、日历等功能",
+  "version": "0.0.1",
+  "publisher": "daily-ritual",
+  "author": {
+    "name": "Daily Ritual Team"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/daily-ritual.git"
+  },
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "daily",
+    "ritual",
+    "check-in",
+    "calendar",
+    "fortune",
+    "mood",
+    "打卡",
+    "日历",
+    "运势"
+  ],
+  "activationEvents": [
+    "onCommand:daily-ritual.openCalendar",
+    "onCommand:daily-ritual.checkIn",
+    "onCommand:daily-ritual.showFortune",
+    "onView:daily-ritual.calendarView"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "daily-ritual.openCalendar",
+        "title": "打开每日仪式日历",
+        "category": "Daily Ritual"
+      },
+      {
+        "command": "daily-ritual.checkIn",
+        "title": "今日打卡",
+        "category": "Daily Ritual"
+      },
+      {
+        "command": "daily-ritual.showFortune",
+        "title": "今日运势",
+        "category": "Daily Ritual"
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "daily-ritual",
+          "title": "每日仪式",
+          "icon": "resources/icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "daily-ritual": [
+        {
+          "id": "daily-ritual.calendarView",
+          "name": "日历",
+          "type": "webview"
+        }
+      ]
+    },
+    "menus": {
+      "view/title": [
+        {
+          "command": "daily-ritual.checkIn",
+          "when": "view == daily-ritual.calendarView",
+          "group": "navigation"
+        },
+        {
+          "command": "daily-ritual.showFortune",
+          "when": "view == daily-ritual.calendarView",
+          "group": "navigation"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.74.0",
+    "@types/node": "16.x",
+    "typescript": "^4.9.4"
+  }
+} 
