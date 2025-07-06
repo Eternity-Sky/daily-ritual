@@ -10,7 +10,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/your-username/daily-ritual.git"
+    "url": "https://github.com/Eternity-Sky/daily-ritual.git"
   },
   "engines": {
     "vscode": "^1.74.0"
